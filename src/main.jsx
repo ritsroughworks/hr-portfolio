@@ -36,8 +36,8 @@ function App() {
       </main>
 
       <footer className="mt-12 border-t bg-white">
-        <div className="max-w-[1200px] mx-auto px-4 py-4 text-sm text-slate-500">
-          Built with React + Vite + Tailwind CSS (v3) • © {new Date().getFullYear()} M.Barani
+        <div className="max-w-[1200px] mx-auto px-4 py-4 text-sm text-slate-500 text-center">
+          Built with React + Vite + Tailwind CSS (v3) by Haridhraa Pranav 💙 • © {new Date().getFullYear()} M.Barani
         </div>
       </footer>
     </div>

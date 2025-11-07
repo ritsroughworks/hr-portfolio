@@ -14,7 +14,7 @@ Email
 </div>
 
 
-<div className="mt-6 text-sm text-slate-500">© {new Date().getFullYear()} M.Barani – All Rights Reserved.</div>
+<div className="mt-6 text-sm text-slate-500">© {new Date().getFullYear()} Barani HR Firm – All Rights Reserved.</div>
 </footer>
 );
 }

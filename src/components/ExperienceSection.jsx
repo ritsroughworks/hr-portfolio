@@ -1,54 +1,52 @@
 // src/components/ExperienceSection.jsx
 import React, { useState } from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Pagination } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/pagination';
+
+/**
+ * ExperienceSection — final layout:
+ * - Desktop: 4x5 grid (20 logos visible)
+ * - Mobile: swipeable topics + 2-row horizontal scrollable logo section
+ * - Pagination dots styled below the cards (same as AchievementsCarousel)
+ */
 
 function LogoItem({ src, alt }) {
   const [imgError, setImgError] = useState(false);
-
   return (
-    <div
-      className="flex flex-col items-center justify-center min-w-[120px] md:min-w-0 p-3 bg-white rounded-md shadow-sm filter grayscale hover:grayscale-0 transition"
-      title={alt || ''}
-    >
-      {/* Show image if it loads; otherwise show a graphical fallback (no visible alt text) */}
+    <div className="flex items-center justify-center px-2 py-3">
       {!imgError ? (
         <img
           src={src}
-          alt={alt || ''} // keep alt for accessibility; empty alt is allowed for purely decorative images
-          className="max-h-10 object-contain"
+          alt={alt || ''}
+          className="h-12 md:h-20 object-contain"
           onError={() => setImgError(true)}
-          // if you prefer to hide broken images (and show fallback), use the state above
+          loading="lazy"
         />
       ) : (
-        // Fallback: small neutral graphic (monogram or shell) – keeps layout consistent
-        <div className="w-12 h-10 flex items-center justify-center bg-slate-50 rounded">
-          {/* Simple generic placeholder SVG (scales nicely and looks neutral) */}
-          <svg viewBox="0 0 24 24" className="w-8 h-8 text-slate-400" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <div className="w-28 h-12 md:h-20 flex items-center justify-center bg-slate-50 rounded">
+          <svg viewBox="0 0 24 24" className="w-6 h-6 text-slate-400" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
             <rect x="2" y="4" width="20" height="16" rx="2" stroke="currentColor" strokeWidth="1.5" />
-            <path d="M7 9h10M7 13h6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+            <path d="M7 9h10M7 13h6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
         </div>
       )}
-
-      {/* Hidden label for screen readers only — not visible on screen */}
-      <span className="sr-only">{alt}</span>
     </div>
   );
 }
 
-export function ExperienceSection({
-  clients = [],
-  projectTypes = ['Talent Strategy', 'Org Design', 'Change Management', 'HR Tech Implementation']
-}) {
+export function ExperienceSection({ clients = [], projectTypes = ['Talent Strategy', 'Org Design', 'Change Management', 'HR Tech Implementation'] }) {
   const defaultClients = [
     { src: '/assets/logo-havells.svg', alt: 'Havells India Ltd' },
     { src: '/assets/logo-erpmark.png', alt: 'ERP Mark Inc' },
-    { src: '/assets/logo-themesoft.jpg', alt: 'Themesoft India Limited' },
+    { src: '/assets/logo-themesoft.png', alt: 'Themesoft India Limited' },
     { src: '/assets/logo-softcrylic.png', alt: 'Softcrylic Technologies Ltd' },
-    { src: '/assets/logo-informatics.jpg', alt: 'Informatics Technologies Inc' },
+    { src: '/assets/logo-informatics.png', alt: 'Informatics Technologies Inc' },
     { src: '/assets/logo-teksystems.svg', alt: 'TEK Systems' },
     { src: '/assets/logo-hcl.png', alt: 'HCL America' },
     { src: '/assets/logo-macmillan.jpg', alt: 'Macmillan' },
-    { src: '/assets/logo-etsy.svg', alt: 'ETSY' },
+    { src: '/assets/logo-etsy.png', alt: 'ETSY' },
     { src: '/assets/logo-delta.svg', alt: 'Delta Air' },
     { src: '/assets/logo-toyota.svg', alt: 'Toyota' },
     { src: '/assets/logo-mercedes.png', alt: 'Mercedes Benz' },
@@ -56,39 +54,109 @@ export function ExperienceSection({
     { src: '/assets/logo-cognizant.png', alt: 'Cognizant' },
     { src: '/assets/logo-dowjones.svg', alt: 'Dow Jones' },
     { src: '/assets/logo-att.svg', alt: 'AT&T' },
-    { src: '/assets/logo-avaya.jpg', alt: 'Avaya' },
+    { src: '/assets/logo-avaya.png', alt: 'Avaya' },
     { src: '/assets/logo-pepsico.svg', alt: 'PepsiCo' },
-    { src: '/assets/logo-shell.svg', alt: 'Shell Lubricants' },
+    { src: '/assets/logo-shell.png', alt: 'Shell Lubricants' },
     { src: '/assets/logo-target.svg', alt: 'Target Corp' },
-    { src: '/assets/logo-bluecross.svg', alt: 'BlueCross BlueShield' },
-    { src: '/assets/logo-capitalone.svg', alt: 'Capital One' },
-    { src: '/assets/logo-chase.svg', alt: 'Chase Bank' },
-    { src: '/assets/logo-prudential.svg', alt: 'Prudential' },
-    { src: '/assets/logo-goldmansachs.svg', alt: 'Goldman Sachs' },
   ];
 
-  const logos = clients.length ? clients : defaultClients;
+  const logos = clients.length ? clients.slice(0, 20) : defaultClients;
+  const columns = [];
+  for (let i = 0; i < logos.length; i += 2) {
+    columns.push([logos[i], logos[i + 1]]);
+  }
+
+  const topics = [
+    { emoji: '🎯', title: 'Talent Strategy', body: 'A good talent strategy ensures every new hire fits the company goals and culture.' },
+    { emoji: '🏗️', title: 'Organization Design', body: 'Designing the right structures helps teams perform with less confusion and overlap.' },
+    { emoji: '🔁', title: 'Change Management', body: 'Smooth transitions by preparing teams, clear communication, and maintaining morale.' },
+    { emoji: '⚙️', title: 'HR Tech Implementation', body: 'Moving from manual to data-driven systems for better accuracy and insights.' },
+  ];
 
   return (
     <section className="max-w-[1200px] mx-auto px-4 py-10" id="experience">
-      <h2 className="text-2xl font-semibold mb-4">Experience & Clients</h2>
+      <h2 className="text-2xl font-semibold mb-6">Experience & Clients</h2>
 
-      <div className="mb-6">
-        <div className="flex gap-4 overflow-x-auto md:grid md:grid-cols-5 md:gap-6">
-          {logos.map((c, i) => (
-            <LogoItem key={i} src={c.src} alt={c.alt || ''} />
+      {/* Scoped pagination styling same as AchievementsCarousel */}
+      <style>{`
+        .experience-swiper .swiper-pagination {
+          position: static !important;
+          margin-top: 0.75rem;
+          display: flex;
+          justify-content: center;
+          gap: 0.5rem;
+        }
+        .experience-swiper .swiper-pagination-bullet {
+          width: 10px;
+          height: 10px;
+          opacity: 0.6;
+          background: #cbd5e1;
+        }
+        .experience-swiper .swiper-pagination-bullet-active {
+          background: #0ea5a4;
+          opacity: 1;
+        }
+        .experience-swiper .swiper-button-prev,
+        .experience-swiper .swiper-button-next {
+          display: none !important;
+        }
+      `}</style>
+
+      {/* MOBILE: Swiper for topics */}
+      <div className="md:hidden mb-6">
+        <div className="experience-swiper">
+          <Swiper
+            modules={[Pagination]}
+            slidesPerView={1.05}
+            spaceBetween={12}
+            pagination={{ clickable: true }}
+            aria-label="Experience topics"
+            className="py-2"
+          >
+            {topics.map((t) => (
+              <SwiperSlide key={t.title} className="rounded-xl p-4 shadow-md bg-white">
+                <div className="flex items-start gap-4">
+                  <div className="flex-shrink-0 w-10 h-10 rounded-full bg-teal-50 flex items-center justify-center text-xl" aria-hidden>
+                    <span className="select-none">{t.emoji}</span>
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-lg">{t.title}</h3>
+                    <p className="text-sm text-slate-600 mt-2">{t.body}</p>
+                  </div>
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
+      </div>
+
+      {/* DESKTOP: 4x5 logo grid */}
+      <div className="hidden md:grid md:grid-rows-4 md:grid-cols-5 gap-4 mb-6">
+        {logos.map((c, i) => (
+          <div key={i} className="flex items-center justify-center bg-white rounded-md p-4 shadow-sm">
+            <LogoItem src={c.src} alt={c.alt} />
+          </div>
+        ))}
+      </div>
+
+      {/* MOBILE: 2-row horizontal scrollable logos */}
+      <div
+        className="md:hidden overflow-x-auto -mx-4 px-4"
+        style={{ WebkitOverflowScrolling: 'touch' }}
+        aria-label="Client logos, swipe to view"
+      >
+        <div className="flex gap-4 items-start">
+          {columns.map((col, idx) => (
+            <div key={idx} className="min-w-[140px] flex flex-col items-center justify-center bg-white rounded-md p-2 shadow-sm">
+              {col[0] ? <LogoItem src={col[0].src} alt={col[0].alt} /> : <div className="h-12" />}
+              {col[1] ? <LogoItem src={col[1].src} alt={col[1].alt} /> : <div className="h-12" />}
+            </div>
           ))}
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-        {projectTypes.map((p) => (
-          <article key={p} className="rounded-xl p-4 shadow-sm bg-white">
-            <h4 className="font-semibold">{p}</h4>
-            <p className="text-sm text-slate-600 mt-2">Short example or description for {p}.</p>
-          </article>
-        ))}
-      </div>
+      <p className="text-xs text-slate-500 mt-4">Swipe on mobile ❯❯❯❯</p>
+
     </section>
   );
 }

@@ -13,11 +13,33 @@ export function SkillsCarousel() {
     { emoji: '⚙️', title: 'People Operations', bullets: ['HR Audits', 'Process Optimization', 'HRIS', 'Payroll & Compliance'] },
     { emoji: '💡', title: 'Performance & Culture', bullets: ['OKRs', 'Performance Frameworks', 'Engagement & DEI', 'Change Management'] },
     { emoji: '🤖', title: 'Modern Tech', bullets: ['People Analytics', 'Gen AI Tools', 'Prompt Engineering', 'HR Automation'] },
+
+    {
+      emoji: '🏢',
+      title: 'Co-working Space (Coimbatore)',
+      bullets: [
+        'Fully equipped and integrated co-working space in Coimbatore',
+        'Can accommodate up to 100 people comfortably',
+        'Ideal for startups, remote teams, and project-based work',
+        'Flexible plans available based on team size and duration',
+      ],
+    },
+    {
+      emoji: '🚚',
+      title: 'New Office Implementation (Tamil Nadu)',
+      bullets: [
+        'Complete assistance for setting up new office spaces across Tamil Nadu',
+        // 'Support for companies expanding from Kerala, Karnataka, and other regions',
+        'Includes site coordination, infrastructure, and setup management',
+        'Customizable solutions to match client needs and timelines',
+      ],
+    },
+
   ];
 
   return (
     <section className="max-w-[1200px] mx-auto px-4 py-10" id="skills">
-      <h2 className="text-2xl font-semibold mb-6">Expertise & Skills</h2>
+      <h2 className="text-2xl font-semibold mb-6">Expertise and Services Provided</h2>
 
       {/* Scoped CSS: move pagination below and hide arrows */}
       <style>{`
@@ -78,8 +100,8 @@ export function SkillsCarousel() {
         </div>
       </div>
 
-      {/* DESKTOP / TABLET: Grid display */}
-      <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {/* DESKTOP / TABLET: 2 rows x 4 columns grid */}
+      <div className="hidden md:grid md:grid-cols-4 md:grid-rows-2 gap-6">
         {slides.map((s) => (
           <article
             key={s.title}
