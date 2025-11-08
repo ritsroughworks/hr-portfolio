@@ -13,49 +13,12 @@ export function SkillsCarousel() {
     { emoji: '⚙️', title: 'People Operations', bullets: ['HR Audits', 'Process Optimization', 'HRIS', 'Payroll & Compliance'] },
     { emoji: '💡', title: 'Performance & Culture', bullets: ['OKRs', 'Performance Frameworks', 'Engagement & DEI', 'Change Management'] },
     { emoji: '🤖', title: 'Modern Tech', bullets: ['People Analytics', 'Gen AI Tools', 'Prompt Engineering', 'HR Automation'] },
-
-    {
-      emoji: '🏢',
-      title: 'Co-working Space (Coimbatore)',
-      bullets: [
-        'Fully equipped and integrated co-working space in Coimbatore',
-        'Can accommodate up to 100 people comfortably',
-        'Ideal for startups, remote teams, and project-based work',
-        'Flexible plans available based on team size and duration',
-      ],
-    },
-    {
-      emoji: '🚚',
-      title: 'New Office Implementation (Tamil Nadu)',
-      bullets: [
-        'Complete assistance for setting up new office spaces across Tamil Nadu',
-        'Includes site coordination, infrastructure, and setup management',
-        'Customizable solutions to match client needs and timelines',
-      ],
-    },
-    {
-      emoji: '🧑‍💼',
-      title: 'Outsourcing HRBP',
-      bullets: [
-        'User-based HR Business Partnering for small, medium and large enterprises',
-        'End-to-end HR support tailored to organization scale and structure',
-        'Monthly, hourly and fully customized billing options available',
-      ],
-    },
-    {
-      emoji: '📈',
-      title: 'Methodologies Implementation',
-      bullets: [
-        'Agile methodology',
-        'Kanban workflow system',
-        'Kaizen continuous improvement approach',
-        'ADKAR change management framework',
-        'Pareto analysis (80/20 rule)',
-        'Fishbone cause analysis',
-        'NLP (Neuro-Linguistic Programming)',
-      ],
-    },
+    { emoji: '🏢', title: 'Co-working Space', bullets: ['Coimbatore-based workspace', 'Capacity for 100 members', 'Startup & remote team friendly', 'Flexible plans & durations'] },
+    { emoji: '🚚', title: 'Office Implementation', bullets: ['Setup across Tamil Nadu', 'Site & infrastructure coordination', 'End-to-end setup management', 'Customizable solutions'] },
+    { emoji: '🧑‍💼', title: 'HRBP Outsourcing', bullets: ['User-based HR partnering', 'Scalable HR support', 'End-to-end HR operations', 'Flexible billing models'] },
+    { emoji: '📈', title: 'Methodologies', bullets: ['Agile', 'Kanban', 'Kaizen', 'ADKAR for Change Management', 'Pareto Methodology', 'Fishbone Methodology', 'NLP'] },
   ];
+
 
   return (
     <section className="max-w-[1200px] mx-auto px-4 py-10" id="skills">
