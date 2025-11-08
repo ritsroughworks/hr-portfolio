@@ -13,58 +13,17 @@ export function SkillsCarousel() {
     { emoji: '⚙️', title: 'People Operations', bullets: ['HR Audits', 'Process Optimization', 'HRIS', 'Payroll & Compliance'] },
     { emoji: '💡', title: 'Performance & Culture', bullets: ['OKRs', 'Performance Frameworks', 'Engagement & DEI', 'Change Management'] },
     { emoji: '🤖', title: 'Modern Tech', bullets: ['People Analytics', 'Gen AI Tools', 'Prompt Engineering', 'HR Automation'] },
-
-    {
-      emoji: '🏢',
-      title: 'Co-working Space (Coimbatore)',
-      bullets: [
-        'Fully equipped and integrated co-working space in Coimbatore',
-        'Can accommodate up to 100 people comfortably',
-        'Ideal for startups, remote teams, and project-based work',
-        'Flexible plans available based on team size and duration',
-      ],
-    },
-    {
-      emoji: '🚚',
-      title: 'New Office Implementation (Tamil Nadu)',
-      bullets: [
-        'Complete assistance for setting up new office spaces across Tamil Nadu',
-        // 'Support for companies expanding from Kerala, Karnataka, and other regions',
-        'Includes site coordination, infrastructure, and setup management',
-        'Customizable solutions to match client needs and timelines',
-      ],
-    },
-    {
-      emoji: '🧑‍💼',
-      title: 'Outsourcing HRBP',
-      bullets: [
-        'User-based HR Business Partnering for small, medium and large enterprises',
-        'End-to-end HR support tailored to organization scale and structure',
-        'Monthly, hourly and fully customized billing options available',
-      ],
-    },
-    {
-      emoji: '📈',
-      title: 'Methodologies Implementation',
-      bullets: [
-        'Agile methodology',
-        'Kanban workflow system',
-        'Kaizen continuous improvement approach',
-        'ADKAR change management framework',
-        'Pareto analysis (80/20 rule)',
-        'Fishbone cause analysis',
-        'NLP (Neuro-Linguistic Programming)',
-      ],
-    },
-
-
+    { emoji: '🏢', title: 'Co-working Space (Coimbatore)', bullets: ['Fully equipped and integrated co-working space in Coimbatore','Can accommodate up to 100 people comfortably','Ideal for startups, remote teams, and project-based work','Flexible plans available based on team size and duration' ] },
+    { emoji: '🚚', title: 'New Office Implementation (Tamil Nadu)', bullets: ['Comprehensive new office setup and coordination services across Tamil Nadu'] },
+    { emoji: '🧑‍💼', title: 'Outsourcing HRBP', bullets: ['Flexible and scalable HR Business Partnering solutions for enterprises of all sizes'] },
+    { emoji: '📈', title: 'Methodologies Implementation', bullets: ['End-to-end implementation of proven business methodologies and process frameworks'] },
   ];
 
   return (
     <section className="max-w-[1200px] mx-auto px-4 py-10" id="skills">
       <h2 className="text-2xl font-semibold mb-6">Expertise and Services Provided</h2>
 
-      {/* Scoped CSS: move pagination below and hide arrows */}
+      {/* Scoped CSS: pagination + ensure swiper slides are flex containers so heights can stretch */}
       <style>{`
         .skills-swiper .swiper-pagination {
           position: static !important;
@@ -87,6 +46,13 @@ export function SkillsCarousel() {
         .skills-swiper .swiper-button-next {
           display: none !important;
         }
+
+        /* Force swiper slides to be flex containers and allow height auto (Swiper sometimes sets inline heights) */
+        .skills-swiper .swiper-slide {
+          display: flex;
+          flex-direction: column;
+          height: auto !important;
+        }
       `}</style>
 
       {/* MOBILE: Swiper carousel */}
@@ -101,7 +67,8 @@ export function SkillsCarousel() {
             className="py-2"
           >
             {slides.map((s) => (
-              <SwiperSlide key={s.title} className="rounded-xl p-4 shadow-md bg-white">
+              // Make each slide a flex column and let the inner 'card-content' flex to fill available height
+              <SwiperSlide key={s.title} className="rounded-xl p-4 shadow-md bg-white flex flex-col h-full">
                 <div className="flex items-start gap-3 mb-2">
                   <div
                     className="flex-shrink-0 w-10 h-10 rounded-full bg-teal-50 flex items-center justify-center text-xl"
@@ -112,11 +79,14 @@ export function SkillsCarousel() {
                   <h3 className="font-semibold text-lg leading-tight">{s.title}</h3>
                 </div>
 
-                <ul className="text-sm text-slate-600 space-y-1">
-                  {s.bullets.map((b) => (
-                    <li key={b}>• {b}</li>
-                  ))}
-                </ul>
+                {/* This wrapper stretches so all slides match height */}
+                <div className="card-content flex-1">
+                  <ul className="text-sm text-slate-600 space-y-1">
+                    {s.bullets.map((b) => (
+                      <li key={b}>• {b}</li>
+                    ))}
+                  </ul>
+                </div>
               </SwiperSlide>
             ))}
           </Swiper>
