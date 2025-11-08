@@ -34,11 +34,13 @@ export function ExperienceSection({
   projectTypes = ['Talent Strategy', 'Org Design', 'Change Management', 'HR Tech Implementation']
 }) {
   const defaultClients = [
+    { src: '/assets/logo-ritsware.png', alt: 'Ritsware' },
     { src: '/assets/logo-havells.svg', alt: 'Havells India Ltd' },
     { src: '/assets/logo-erpmark.png', alt: 'ERP Mark Inc' },
     { src: '/assets/logo-themesoft.png', alt: 'Themesoft India Limited' },
     { src: '/assets/logo-softcrylic.png', alt: 'Softcrylic Technologies Ltd' },
     { src: '/assets/logo-informatics.png', alt: 'Informatics Technologies Inc' },
+    { src: '/assets/logo-tnau.png', alt: 'Tamil Nadu Agricultural University' },
     { src: '/assets/logo-teksystems.svg', alt: 'TEK Systems' },
     { src: '/assets/logo-hcl.png', alt: 'HCL America' },
     { src: '/assets/logo-macmillan.jpg', alt: 'Macmillan' },
@@ -54,6 +56,7 @@ export function ExperienceSection({
     { src: '/assets/logo-pepsico.svg', alt: 'PepsiCo' },
     { src: '/assets/logo-shell.png', alt: 'Shell Lubricants' },
     { src: '/assets/logo-target.svg', alt: 'Target Corp' },
+    
   ];
 
   const logos = clients.length ? clients.slice(0, 20) : defaultClients;
