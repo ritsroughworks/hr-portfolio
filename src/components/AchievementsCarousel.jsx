@@ -43,6 +43,12 @@ export function AchievementsCarousel() {
         .achievements-swiper .swiper-button-next {
           display: none !important;
         }
+        /* ensure slides are flex columns and auto height (override Swiper inline) */
+        .achievements-swiper .swiper-slide {
+          display: flex;
+          flex-direction: column;
+          height: auto !important;
+        }
       `}</style>
 
       {/* MOBILE: Swiper carousel (visible on small screens only) */}
@@ -57,18 +63,20 @@ export function AchievementsCarousel() {
             className="py-2"
           >
             {cards.map((c) => (
-              <SwiperSlide key={c.title} className="rounded-xl p-4 shadow-md bg-white">
-                <div className="flex items-start gap-4">
-                  <div
-                    className="flex-shrink-0 w-10 h-10 rounded-full bg-teal-50 flex items-center justify-center text-xl"
-                    aria-hidden="true"
-                  >
-                    <span className="select-none">{c.emoji}</span>
-                  </div>
+              <SwiperSlide key={c.title} className="rounded-xl p-4 shadow-md bg-white flex flex-col h-full">
+                <div className="card-content flex-1">
+                  <div className="flex items-start gap-4">
+                    <div
+                      className="flex-shrink-0 w-10 h-10 rounded-full bg-teal-50 flex items-center justify-center text-xl"
+                      aria-hidden="true"
+                    >
+                      <span className="select-none">{c.emoji}</span>
+                    </div>
 
-                  <div>
-                    <h4 className="font-semibold text-lg leading-tight">{c.title}</h4>
-                    <p className="text-sm text-slate-600 mt-2">{c.desc}</p>
+                    <div>
+                      <h4 className="font-semibold text-lg leading-tight">{c.title}</h4>
+                      <p className="text-sm text-slate-600 mt-2">{c.desc}</p>
+                    </div>
                   </div>
                 </div>
               </SwiperSlide>
