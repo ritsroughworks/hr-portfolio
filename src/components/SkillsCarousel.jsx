@@ -9,7 +9,7 @@ export function SkillsCarousel() {
   const slides = [
     { emoji: '🧭', title: 'Overview', bullets: ['Talent Acquisition', 'Employee Experience', 'HR Strategy', 'Learning & Development', 'Digital Transformation', 'Agile HR'] },
     { emoji: '🎯', title: 'Recruitment', bullets: ['Global Recruitment Setups', 'Sourcing Strategy', 'Interview Design', 'Offer Management','Staff Augmentation','Contract Staffing'] },
-    { emoji: '📚', title: 'Learning & Development', bullets: ['LMS Implementation', 'Microlearning','Blended Learning/VLIT', 'Instructional Design', 'Competency-based Assessments','Skilled Workshops'] },
+    { emoji: '📚', title: 'Learning & Development', bullets: ['LMS Implementation', 'Microlearning','Blended Learning/VLIT', 'Instructional Design', 'Competency-based Assessments','Skilled Workshops','Learning Nuggets'] },
     { emoji: '⚙️', title: 'People Operations', bullets: ['HR Audits', 'Process Optimization', 'HRIS', 'Payroll & Compliance','CSR Activities','Out sourced Back Office operations'] },
     { emoji: '💡', title: 'Performance & Culture', bullets: ['OKRs', 'Performance Frameworks', 'Engagement & DEI', 'Change Management'] },
     { emoji: '🤖', title: 'Modern Tech', bullets: ['People Analytics', 'Gen AI Tools', 'Prompt Engineering', 'HR Automation'] },
@@ -125,3 +125,4 @@ export function SkillsCarousel() {
 }
 
 export default SkillsCarousel;
+
