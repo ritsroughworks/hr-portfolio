@@ -1,7 +1,7 @@
 // src/components/Navbar.jsx
 import React, { useState, useRef, useEffect } from 'react';
 
-export function Navbar({ brand = 'M.Barani' }) {
+export function Navbar({ brand = "Barani's HR Firm" }) {
   const [open, setOpen] = useState(false);
   const triggerRef = useRef(null);
   const closeBtnRef = useRef(null);
@@ -176,3 +176,4 @@ export function Navbar({ brand = 'M.Barani' }) {
 }
 
 export default Navbar;
+
