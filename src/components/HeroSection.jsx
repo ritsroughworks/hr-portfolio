@@ -2,7 +2,7 @@
 import React from 'react';
 
 export function HeroSection({
-  name = 'Barani HR Firm',
+  name = "Barani's HR Firm",
   title = 'Demand Generation • HR Consulting • L&D',
   linkedInUrl = 'https://www.linkedin.com/in/barani25',
   photoSrc = '/assets/pfp.jpg'
@@ -77,3 +77,4 @@ export function HeroSection({
 }
 
 export default HeroSection;
+
