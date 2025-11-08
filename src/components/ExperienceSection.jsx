@@ -68,30 +68,34 @@ export function ExperienceSection({
     {
       emoji: '🎯',
       title: 'Talent Strategy',
-      body: 'A good talent strategy ensures every new hire fits the company goals and culture.'
+      body:
+        'A good talent strategy ensures every new hire fits the company goals and culture. Adopted AI driven Analytics. Foster Continuous learning and Upskilling program. Promoted flexible, hybrid, diversity, equality and inclusion.'
     },
     {
       emoji: '🏗️',
       title: 'Organization Design',
-      body: 'Designing the right structures helps teams perform with less confusion and overlap.'
+      body:
+        'Designing the right structures helps teams perform with less confusion and overlap. Agility over Rigidity. Talent as the Unit of value. Purpose-Driven Structure. Tech-Enabled, Human-Centric. Boundaryless Collaboration. SOP Design & Implementation.'
     },
     {
       emoji: '🔁',
       title: 'Change Management',
-      body: 'Smooth transitions by preparing teams, clear communication, and maintaining morale.'
+      body:
+        'Smooth transitions by preparing teams, clear communication, and maintaining morale. Vision and Sponsorship. Talent Enablement. Agile Execution. Behavioural data. Sustained Adoption'
     },
     {
       emoji: '⚙️',
       title: 'HR Tech Implementation',
-      body: 'Moving from manual to data-driven systems for better accuracy and insights.'
+      body:
+        'Moving from manual to data-driven systems for better accuracy and insights. Efficiency Gains. Data-Driven Insights. Employee Experience Boost. DEI & Compliance. Security & Scalability.'
     },
   ];
 
   return (
     <section className="max-w-[1200px] mx-auto px-4 py-10" id="experience">
-      <h2 className="text-2xl font-semibold mb-6">Experience & Clients</h2>
+      <h2 className="text-2xl font-semibold mb-6">Experience & Outcome</h2>
 
-      {/* Pagination styling for mobile swiper (centered dots below cards) */}
+      {/* Pagination styling + ensure swiper slides are flex columns and auto height (override Swiper inline) */}
       <style>{`
         .experience-swiper .swiper-pagination {
           position: static !important;
@@ -114,10 +118,11 @@ export function ExperienceSection({
         .experience-swiper .swiper-button-next {
           display: none !important;
         }
-        /* ensure slides are flex columns and auto height (override Swiper inline) */
+
+        /* IMPORTANT: ensure slides are flex columns and auto height (override Swiper inline styles) */
         .experience-swiper .swiper-slide {
-          display: flex;
-          flex-direction: column;
+          display: flex !important;
+          flex-direction: column !important;
           height: auto !important;
         }
       `}</style>
@@ -134,15 +139,28 @@ export function ExperienceSection({
             className="py-2"
           >
             {topics.map((t) => (
-              <SwiperSlide key={t.title} className="rounded-xl p-4 shadow-md bg-white flex flex-col h-full">
+              <SwiperSlide
+                key={t.title}
+                className="rounded-xl p-4 shadow-md bg-white flex flex-col h-full"
+              >
+                {/* card-content stretches to equalize heights */}
                 <div className="card-content flex-1">
                   <div className="flex items-start gap-4">
-                    <div className="flex-shrink-0 w-10 h-10 rounded-full bg-teal-50 flex items-center justify-center text-xl" aria-hidden>
+                    <div
+                      className="flex-shrink-0 w-10 h-10 rounded-full bg-teal-50 flex items-center justify-center text-xl"
+                      aria-hidden
+                    >
                       <span className="select-none">{t.emoji}</span>
                     </div>
                     <div>
                       <h3 className="font-semibold text-lg">{t.title}</h3>
-                      <p className="text-sm text-slate-600 mt-2">{t.body}</p>
+
+                      {/* split sentences and render each on its own line */}
+                      <div className="text-sm text-slate-600 mt-2 space-y-1">
+                        {t.body.split('. ').map((line, idx) =>
+                          line.trim() ? <p key={idx}>• {line.trim().replace(/\.$/, '')}.</p> : null
+                        )}
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -156,14 +174,22 @@ export function ExperienceSection({
       <div className="hidden md:grid md:grid-cols-2 md:grid-rows-2 gap-4 mb-8">
         {topics.map((t) => (
           <article key={t.title} className="rounded-xl p-6 shadow-sm bg-white flex items-start gap-4">
-            <div className="flex-shrink-0 w-12 h-12 rounded-full bg-teal-50 flex items-center justify-center text-2xl select-none">{t.emoji}</div>
+            <div className="flex-shrink-0 w-12 h-12 rounded-full bg-teal-50 flex items-center justify-center text-2xl select-none">
+              {t.emoji}
+            </div>
             <div>
               <h4 className="font-semibold text-lg">{t.title}</h4>
-              <p className="text-sm text-slate-600 mt-2">{t.body}</p>
+              <div className="text-sm text-slate-600 mt-2 space-y-1">
+                {t.body.split('. ').map((line, idx) =>
+                  line.trim() ? <p key={idx}>• {line.trim().replace(/\.$/, '')}.</p> : null
+                )}
+              </div>
             </div>
           </article>
         ))}
       </div>
+
+      <h2 className="text-2xl font-semibold mb-6">Clients Served</h2>
 
       {/* DESKTOP: 4 rows x 5 columns grid for logos */}
       <div className="hidden md:grid md:grid-rows-4 md:grid-cols-5 gap-4 mb-6">
@@ -190,8 +216,17 @@ export function ExperienceSection({
         </div>
       </div>
 
-      <p className="text-xs text-slate-500 mt-4">Swipe on mobile ❯❯❯❯</p>
+      <p className="text-xs text-slate-500 mt-4">Swipe on mobile 👉 — view the full grid on desktop.</p>
 
+      {/* Optional: Project types grid below (kept if you want to show them) */}
+      {/* <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mt-6">
+        {projectTypes.map((p) => (
+          <article key={p} className="rounded-xl p-4 shadow-sm bg-white">
+            <h4 className="font-semibold">{p}</h4>
+            <p className="text-sm text-slate-600 mt-2">Short example or description for {p}.</p>
+          </article>
+        ))}
+      </div> */}
     </section>
   );
 }

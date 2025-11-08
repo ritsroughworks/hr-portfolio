@@ -104,7 +104,7 @@ export function AchievementsCarousel() {
         ))}
       </div>
 
-      <p className="text-xs text-slate-500 mt-4">Swipe on mobile — use the grid on wider screens.</p>
+      <p className="text-xs text-slate-500 mt-4">Swipe on mobile 👉 — view the full grid on desktop.</p>
     </section>
   );
 }

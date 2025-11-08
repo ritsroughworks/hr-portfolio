@@ -8,15 +8,15 @@ import 'swiper/css/pagination';
 export function SkillsCarousel() {
   const slides = [
     { emoji: '🧭', title: 'Overview', bullets: ['Talent Acquisition', 'Employee Experience', 'HR Strategy', 'Learning & Development', 'Digital Transformation', 'Agile HR'] },
-    { emoji: '🎯', title: 'Recruitment', bullets: ['Global Recruitment Setups', 'Sourcing Strategy', 'Interview Design', 'Offer Management'] },
-    { emoji: '📚', title: 'Learning & Development', bullets: ['LMS Implementation', 'Microlearning', 'Instructional Design', 'Competency-based Assessments'] },
-    { emoji: '⚙️', title: 'People Operations', bullets: ['HR Audits', 'Process Optimization', 'HRIS', 'Payroll & Compliance'] },
+    { emoji: '🎯', title: 'Recruitment', bullets: ['Global Recruitment Setups', 'Sourcing Strategy', 'Interview Design', 'Offer Management','Staff Augmentation','Contract Staffing'] },
+    { emoji: '📚', title: 'Learning & Development', bullets: ['LMS Implementation', 'Microlearning','Blended Learning/VLIT', 'Instructional Design', 'Competency-based Assessments','Skilled Workshops'] },
+    { emoji: '⚙️', title: 'People Operations', bullets: ['HR Audits', 'Process Optimization', 'HRIS', 'Payroll & Compliance','CSR Activities','Out sourced Back Office operations'] },
     { emoji: '💡', title: 'Performance & Culture', bullets: ['OKRs', 'Performance Frameworks', 'Engagement & DEI', 'Change Management'] },
     { emoji: '🤖', title: 'Modern Tech', bullets: ['People Analytics', 'Gen AI Tools', 'Prompt Engineering', 'HR Automation'] },
-    { emoji: '🏢', title: 'Co-working Space', bullets: ['Coimbatore-based workspace', 'Capacity for 100 members', 'Startup & remote team friendly', 'Flexible plans & durations'] },
+    { emoji: '🏢', title: 'Co-working Space', bullets: ['Coimbatore-based workspace', 'Capacity for 100 members (Plug and Play)','Rented on Hourly, Monthly and Contract basis', 'Startup & remote team friendly', 'Flexible plans & durations'] },
     { emoji: '🚚', title: 'Office Implementation', bullets: ['Setup across Tamil Nadu', 'Site & infrastructure coordination', 'End-to-end setup management', 'Customizable solutions'] },
     { emoji: '🧑‍💼', title: 'HRBP Outsourcing', bullets: ['User-based HR partnering', 'Scalable HR support', 'End-to-end HR operations', 'Flexible billing models'] },
-    { emoji: '📈', title: 'Methodologies', bullets: ['Agile', 'Kanban', 'Kaizen', 'ADKAR for Change Management', 'Pareto Methodology', 'Fishbone Methodology', 'NLP'] },
+    { emoji: '📈', title: 'Methodologies', bullets: ['Agile', 'Kanban', 'Kaizen', 'ADKAR for Change Management', 'Pareto Methodology for Analysis', 'Fishbone Methodology for QA', 'NLP for Sales'] },
   ];
 
 
@@ -118,7 +118,7 @@ export function SkillsCarousel() {
       </div>
 
       <p className="text-xs text-slate-500 mt-4">
-        Swipe on mobile — view the full grid on desktop.
+        Swipe on mobile 👉 — view the full grid on desktop.
       </p>
     </section>
   );
