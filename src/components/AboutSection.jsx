@@ -11,7 +11,7 @@ const cards = [
 
 return (
 <section className="max-w-[1200px] mx-auto px-4 py-10" id="about">
-<h2 className="text-2xl font-semibold mb-6">About</h2>
+<h2 className="text-2xl font-semibold mb-6">About Mr.Barani</h2>
 <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
 {cards.map((c) => (
 <article key={c.title} className="rounded-xl shadow-sm p-4 bg-white">

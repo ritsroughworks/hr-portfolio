@@ -19,17 +19,20 @@ export function HeroSection({
 
           {/* Strong quote */}
           <blockquote className="mt-4 border-l-4 border-teal-200 pl-4 italic text-slate-700 bg-teal-50/40 rounded-md p-3">
-            <span className="font-semibold">“Straight from the horse's mouth”</span>
+            <span className="font-semibold">“Straight from the Source: Wisdom in the AI Age”</span>
             <div className="mt-2 text-sm">
-              In an age of AI assistance, deep domain experience still matters — our expertise turns data and tools into practical, human-centred HR outcomes.
+              In an age of AI assistance, deep domain experience still matters — 
+              our expertise turns data and tools into practical, human-centred HR outcomes.
             </div>
           </blockquote>
 
           {/* Tailored pitch */}
           <p className="mt-4 text-sm md:text-base text-slate-700">
-            Barani HR Firm blends over two decades of hands-on HR, L&D and talent acquisition leadership with modern digital techniques.
-            While AI accelerates tasks, our seasoned practitioners design strategy, culture and learning programs that are empathetic, pragmatic and aligned to business goals — the kind of judgement and stakeholder finesse machines cannot replicate.
-            Choosing Barani HR Firm means choosing experience-led decisions, measurable impact and partner-level accountability.
+            In an era where algorithms whisper predictions and data streams weave narratives, 
+            the timeless virtue endures: seek the unvarnished truth *straight from the horse's mouth. 
+            Here, we bypass the filters, the echoes, and the interpretations—delivering raw insights, 
+            expert voices, and firsthand revelations that cut through the digital din. Explore, uncover, 
+            and connect with the essence of knowledge, unadorned and authentic.
           </p>
 
           <div className="mt-6 flex items-center gap-3">

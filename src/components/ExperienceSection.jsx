@@ -6,10 +6,9 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 
 /**
- * ExperienceSection — final layout:
- * - Desktop: 4x5 grid (20 logos visible)
- * - Mobile: swipeable topics + 2-row horizontal scrollable logo section
- * - Pagination dots styled below the cards (same as AchievementsCarousel)
+ * ExperienceSection
+ * - Topics: mobile = swiper with pagination dots, desktop = 2x2 grid
+ * - Logos: desktop = 4x5 grid, mobile = horizontally scrollable 2-row view (columns of 2)
  */
 
 function LogoItem({ src, alt }) {
@@ -36,7 +35,10 @@ function LogoItem({ src, alt }) {
   );
 }
 
-export function ExperienceSection({ clients = [], projectTypes = ['Talent Strategy', 'Org Design', 'Change Management', 'HR Tech Implementation'] }) {
+export function ExperienceSection({
+  clients = [],
+  projectTypes = ['Talent Strategy', 'Org Design', 'Change Management', 'HR Tech Implementation']
+}) {
   const defaultClients = [
     { src: '/assets/logo-havells.svg', alt: 'Havells India Ltd' },
     { src: '/assets/logo-erpmark.png', alt: 'ERP Mark Inc' },
@@ -61,23 +63,41 @@ export function ExperienceSection({ clients = [], projectTypes = ['Talent Strate
   ];
 
   const logos = clients.length ? clients.slice(0, 20) : defaultClients;
+  // create columns of 2 items each for mobile scroll view
   const columns = [];
   for (let i = 0; i < logos.length; i += 2) {
     columns.push([logos[i], logos[i + 1]]);
   }
 
+  // topic cards content
   const topics = [
-    { emoji: '🎯', title: 'Talent Strategy', body: 'A good talent strategy ensures every new hire fits the company goals and culture.' },
-    { emoji: '🏗️', title: 'Organization Design', body: 'Designing the right structures helps teams perform with less confusion and overlap.' },
-    { emoji: '🔁', title: 'Change Management', body: 'Smooth transitions by preparing teams, clear communication, and maintaining morale.' },
-    { emoji: '⚙️', title: 'HR Tech Implementation', body: 'Moving from manual to data-driven systems for better accuracy and insights.' },
+    {
+      emoji: '🎯',
+      title: 'Talent Strategy',
+      body: 'A good talent strategy ensures every new hire fits the company goals and culture.'
+    },
+    {
+      emoji: '🏗️',
+      title: 'Organization Design',
+      body: 'Designing the right structures helps teams perform with less confusion and overlap.'
+    },
+    {
+      emoji: '🔁',
+      title: 'Change Management',
+      body: 'Smooth transitions by preparing teams, clear communication, and maintaining morale.'
+    },
+    {
+      emoji: '⚙️',
+      title: 'HR Tech Implementation',
+      body: 'Moving from manual to data-driven systems for better accuracy and insights.'
+    },
   ];
 
   return (
     <section className="max-w-[1200px] mx-auto px-4 py-10" id="experience">
       <h2 className="text-2xl font-semibold mb-6">Experience & Clients</h2>
 
-      {/* Scoped pagination styling same as AchievementsCarousel */}
+      {/* Pagination styling for mobile swiper (centered dots below cards) */}
       <style>{`
         .experience-swiper .swiper-pagination {
           position: static !important;
@@ -102,7 +122,7 @@ export function ExperienceSection({ clients = [], projectTypes = ['Talent Strate
         }
       `}</style>
 
-      {/* MOBILE: Swiper for topics */}
+      {/* MOBILE: Swiper with pagination (visible on small screens) */}
       <div className="md:hidden mb-6">
         <div className="experience-swiper">
           <Swiper
@@ -130,7 +150,20 @@ export function ExperienceSection({ clients = [], projectTypes = ['Talent Strate
         </div>
       </div>
 
-      {/* DESKTOP: 4x5 logo grid */}
+      {/* DESKTOP: 2x2 topics grid (md+) */}
+      <div className="hidden md:grid md:grid-cols-2 md:grid-rows-2 gap-4 mb-8">
+        {topics.map((t) => (
+          <article key={t.title} className="rounded-xl p-6 shadow-sm bg-white flex items-start gap-4">
+            <div className="flex-shrink-0 w-12 h-12 rounded-full bg-teal-50 flex items-center justify-center text-2xl select-none">{t.emoji}</div>
+            <div>
+              <h4 className="font-semibold text-lg">{t.title}</h4>
+              <p className="text-sm text-slate-600 mt-2">{t.body}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+
+      {/* DESKTOP: 4 rows x 5 columns grid for logos */}
       <div className="hidden md:grid md:grid-rows-4 md:grid-cols-5 gap-4 mb-6">
         {logos.map((c, i) => (
           <div key={i} className="flex items-center justify-center bg-white rounded-md p-4 shadow-sm">
@@ -139,7 +172,7 @@ export function ExperienceSection({ clients = [], projectTypes = ['Talent Strate
         ))}
       </div>
 
-      {/* MOBILE: 2-row horizontal scrollable logos */}
+      {/* MOBILE: 2-row horizontal scrollable logos (columns of 2 logos) */}
       <div
         className="md:hidden overflow-x-auto -mx-4 px-4"
         style={{ WebkitOverflowScrolling: 'touch' }}
@@ -157,6 +190,15 @@ export function ExperienceSection({ clients = [], projectTypes = ['Talent Strate
 
       <p className="text-xs text-slate-500 mt-4">Swipe on mobile ❯❯❯❯</p>
 
+      {/* Optional: Project types grid below (kept if you want to show them) */}
+      {/* <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mt-6">
+        {projectTypes.map((p) => (
+          <article key={p} className="rounded-xl p-4 shadow-sm bg-white">
+            <h4 className="font-semibold">{p}</h4>
+            <p className="text-sm text-slate-600 mt-2">Short example or description for {p}.</p>
+          </article>
+        ))}
+      </div> */}
     </section>
   );
 }

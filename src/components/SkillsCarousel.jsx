@@ -34,6 +34,29 @@ export function SkillsCarousel() {
         'Customizable solutions to match client needs and timelines',
       ],
     },
+    {
+      emoji: '🧑‍💼',
+      title: 'Outsourcing HRBP',
+      bullets: [
+        'User-based HR Business Partnering for small, medium and large enterprises',
+        'End-to-end HR support tailored to organization scale and structure',
+        'Monthly, hourly and fully customized billing options available',
+      ],
+    },
+    {
+      emoji: '📈',
+      title: 'Methodologies Implementation',
+      bullets: [
+        'Agile methodology',
+        'Kanban workflow system',
+        'Kaizen continuous improvement approach',
+        'ADKAR change management framework',
+        'Pareto analysis (80/20 rule)',
+        'Fishbone cause analysis',
+        'NLP (Neuro-Linguistic Programming)',
+      ],
+    },
+
 
   ];
 
@@ -100,8 +123,8 @@ export function SkillsCarousel() {
         </div>
       </div>
 
-      {/* DESKTOP / TABLET: 2 rows x 4 columns grid */}
-      <div className="hidden md:grid md:grid-cols-4 md:grid-rows-2 gap-6">
+      {/* DESKTOP / TABLET: 2 rows x 5 columns grid */}
+      <div className="hidden md:grid md:grid-cols-5 md:grid-rows-2 gap-6">
         {slides.map((s) => (
           <article
             key={s.title}
