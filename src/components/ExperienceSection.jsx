@@ -5,12 +5,6 @@ import { Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
 
-/**
- * ExperienceSection
- * - Topics: mobile = swiper with pagination dots, desktop = 2x2 grid
- * - Logos: desktop = 4x5 grid, mobile = horizontally scrollable 2-row view (columns of 2)
- */
-
 function LogoItem({ src, alt }) {
   const [imgError, setImgError] = useState(false);
   return (
@@ -120,6 +114,12 @@ export function ExperienceSection({
         .experience-swiper .swiper-button-next {
           display: none !important;
         }
+        /* ensure slides are flex columns and auto height (override Swiper inline) */
+        .experience-swiper .swiper-slide {
+          display: flex;
+          flex-direction: column;
+          height: auto !important;
+        }
       `}</style>
 
       {/* MOBILE: Swiper with pagination (visible on small screens) */}
@@ -134,14 +134,16 @@ export function ExperienceSection({
             className="py-2"
           >
             {topics.map((t) => (
-              <SwiperSlide key={t.title} className="rounded-xl p-4 shadow-md bg-white">
-                <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0 w-10 h-10 rounded-full bg-teal-50 flex items-center justify-center text-xl" aria-hidden>
-                    <span className="select-none">{t.emoji}</span>
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-lg">{t.title}</h3>
-                    <p className="text-sm text-slate-600 mt-2">{t.body}</p>
+              <SwiperSlide key={t.title} className="rounded-xl p-4 shadow-md bg-white flex flex-col h-full">
+                <div className="card-content flex-1">
+                  <div className="flex items-start gap-4">
+                    <div className="flex-shrink-0 w-10 h-10 rounded-full bg-teal-50 flex items-center justify-center text-xl" aria-hidden>
+                      <span className="select-none">{t.emoji}</span>
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-lg">{t.title}</h3>
+                      <p className="text-sm text-slate-600 mt-2">{t.body}</p>
+                    </div>
                   </div>
                 </div>
               </SwiperSlide>
@@ -190,15 +192,6 @@ export function ExperienceSection({
 
       <p className="text-xs text-slate-500 mt-4">Swipe on mobile ❯❯❯❯</p>
 
-      {/* Optional: Project types grid below (kept if you want to show them) */}
-      {/* <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mt-6">
-        {projectTypes.map((p) => (
-          <article key={p} className="rounded-xl p-4 shadow-sm bg-white">
-            <h4 className="font-semibold">{p}</h4>
-            <p className="text-sm text-slate-600 mt-2">Short example or description for {p}.</p>
-          </article>
-        ))}
-      </div> */}
     </section>
   );
 }
