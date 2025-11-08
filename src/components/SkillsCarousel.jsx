@@ -13,10 +13,48 @@ export function SkillsCarousel() {
     { emoji: '⚙️', title: 'People Operations', bullets: ['HR Audits', 'Process Optimization', 'HRIS', 'Payroll & Compliance'] },
     { emoji: '💡', title: 'Performance & Culture', bullets: ['OKRs', 'Performance Frameworks', 'Engagement & DEI', 'Change Management'] },
     { emoji: '🤖', title: 'Modern Tech', bullets: ['People Analytics', 'Gen AI Tools', 'Prompt Engineering', 'HR Automation'] },
-    { emoji: '🏢', title: 'Co-working Space (Coimbatore)', bullets: ['Fully equipped and integrated co-working space in Coimbatore','Can accommodate up to 100 people comfortably','Ideal for startups, remote teams, and project-based work','Flexible plans available based on team size and duration' ] },
-    { emoji: '🚚', title: 'New Office Implementation (Tamil Nadu)', bullets: ['Comprehensive new office setup and coordination services across Tamil Nadu'] },
-    { emoji: '🧑‍💼', title: 'Outsourcing HRBP', bullets: ['Flexible and scalable HR Business Partnering solutions for enterprises of all sizes'] },
-    { emoji: '📈', title: 'Methodologies Implementation', bullets: ['End-to-end implementation of proven business methodologies and process frameworks'] },
+
+    {
+      emoji: '🏢',
+      title: 'Co-working Space (Coimbatore)',
+      bullets: [
+        'Fully equipped and integrated co-working space in Coimbatore',
+        'Can accommodate up to 100 people comfortably',
+        'Ideal for startups, remote teams, and project-based work',
+        'Flexible plans available based on team size and duration',
+      ],
+    },
+    {
+      emoji: '🚚',
+      title: 'New Office Implementation (Tamil Nadu)',
+      bullets: [
+        'Complete assistance for setting up new office spaces across Tamil Nadu',
+        'Includes site coordination, infrastructure, and setup management',
+        'Customizable solutions to match client needs and timelines',
+      ],
+    },
+    {
+      emoji: '🧑‍💼',
+      title: 'Outsourcing HRBP',
+      bullets: [
+        'User-based HR Business Partnering for small, medium and large enterprises',
+        'End-to-end HR support tailored to organization scale and structure',
+        'Monthly, hourly and fully customized billing options available',
+      ],
+    },
+    {
+      emoji: '📈',
+      title: 'Methodologies Implementation',
+      bullets: [
+        'Agile methodology',
+        'Kanban workflow system',
+        'Kaizen continuous improvement approach',
+        'ADKAR change management framework',
+        'Pareto analysis (80/20 rule)',
+        'Fishbone cause analysis',
+        'NLP (Neuro-Linguistic Programming)',
+      ],
+    },
   ];
 
   return (
