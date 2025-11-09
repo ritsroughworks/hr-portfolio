@@ -19,7 +19,6 @@ export function SkillsCarousel() {
     { emoji: '📈', title: 'Methodologies', bullets: ['Agile', 'Kanban', 'Kaizen', 'ADKAR for Change Management', 'Pareto Methodology for Analysis', 'Fishbone Methodology for QA', 'NLP for Sales'] },
   ];
 
-
   return (
     <section className="max-w-[1200px] mx-auto px-4 py-10" id="skills">
       <h2 className="text-2xl font-semibold mb-6">Expertise and Services Provided</h2>
@@ -48,10 +47,10 @@ export function SkillsCarousel() {
           display: none !important;
         }
 
-        /* Force swiper slides to be flex containers and allow height auto (Swiper sometimes sets inline heights) */
+        /* Force swiper slides to be flex columns and allow height auto (override Swiper inline heights) */
         .skills-swiper .swiper-slide {
-          display: flex;
-          flex-direction: column;
+          display: flex !important;
+          flex-direction: column !important;
           height: auto !important;
         }
       `}</style>
@@ -116,10 +115,25 @@ export function SkillsCarousel() {
           </article>
         ))}
       </div>
-
+      
       <p className="text-xs text-slate-500 mt-4">
         Swipe on mobile 👉 — view the full grid on desktop.
       </p>
+      
+      {/* Informational block (styled like your blockquote, without an actual quotation) */}
+      <div className="mt-6">
+        <blockquote className="border-l-4 border-teal-200 pl-4 italic text-slate-700 bg-teal-50/40 rounded-md p-3">
+          <div className="font-semibold">We deliver tailored HR services — simple, reliable, expert-led</div>
+          <div className="mt-2 text-sm">
+            We deliver user-based, monthly-billed, and order-specific services tailored to your precise requirements.
+            <br /><br />
+            Our team comprises seasoned HR professionals across all experience levels, complemented by a highly skilled intern cohort sourced from premier universities and colleges. Together, they execute every project and contract with excellence.
+            <br /><br />
+            Request your service quote today — relax while we manage the rest.
+          </div>
+        </blockquote>
+      </div>
+
     </section>
   );
 }
