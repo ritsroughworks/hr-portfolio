@@ -17,7 +17,7 @@ import { ContactSection } from './components/ContactSection';
 function App() {
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900">
-      <Navbar brand="M.Barani" />
+      <Navbar />
 
       <main>
         <HeroSection />
