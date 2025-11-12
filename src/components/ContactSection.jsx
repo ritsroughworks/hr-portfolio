@@ -1,6 +1,6 @@
 import React from 'react';
 
-export function ContactSection({ linkedInUrl = 'https://www.linkedin.com/in/barani25', email = 'personb@example.com' }){
+export function ContactSection({ linkedInUrl = 'https://www.linkedin.com/in/barani25', email = 'baranitalks@gmail.com' }){
 return (
 <footer className="max-w-[1200px] mx-auto px-4 py-10 text-center" id="contact">
 <h2 className="text-2xl font-semibold mb-4">Let’s Connect!</h2>
@@ -18,5 +18,6 @@ Email
 </footer>
 );
 }
+
 
 export default ContactSection;
