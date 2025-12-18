@@ -62,20 +62,26 @@ const Careers = () => {
         try {
             // Assuming the backend is running on localhost:8000
             // In production, this URL should be an environment variable
-            const response = await fetch("http://localhost:8000/apply", {
-                method: "POST",
-                body: data,
-            });
+            const API_BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:8000";
 
+            setIsSubmitting(true);
+            setSubmitStatus(null);
+        
+            // 2. Use the dynamic URL in the fetch call
+            const response = await fetch(`${API_BASE_URL}/apply`, {
+                method: "POST",
+                body: data, // FormData handles the 'Content-Type' automatically
+            });
+        
             if (!response.ok) {
                 const errorData = await response.json();
                 throw new Error(errorData.detail || "Submission failed");
             }
-
+        
+            // 3. Handle successful submission
             setSubmitStatus('success');
             setFormData({ name: '', email: '', age: '', gender: 'Prefer not to say' });
             setResumeFile(null);
-            // Reset file input manually if needed, or rely on key change
         } catch (error) {
             console.error("Error submitting application:", error);
             setSubmitStatus('error');
@@ -234,3 +240,4 @@ const Careers = () => {
 };
 
 export default Careers;
+
