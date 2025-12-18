@@ -60,6 +60,7 @@ const Home = () => {
                             transition={{ duration: 0.5 }}
                             className="inline-flex items-center space-x-2 bg-blue-50 rounded-full px-4 py-1.5 mb-8 border border-blue-100"
                         >
+                            <h2 className="text-3xl md:text-5xl font-display font-bold text-brand-primary mb-4">A Demand Generation HR Consultancy</h2>
                             <span className="text-blue-900 text-sm font-medium">Technology accelerates the process.
                                 Human wisdom defines the direction.</span>
                         </motion.div>
@@ -258,5 +259,6 @@ const Home = () => {
         </div>
     );
 };
+
 
 export default Home;
