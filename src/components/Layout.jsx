@@ -20,7 +20,7 @@ const Navbar = () => {
                 <div className="flex justify-between h-20 items-center">
                     <div className="flex-shrink-0 flex items-center">
                         <Link to="/" className="text-2xl font-bold font-display text-brand-primary tracking-tight">
-                            Barani<span className="text-brand-accent">HR</span>
+                            Barani's<span className="text-brand-accent">HR Firm</span>
                         </Link>
                     </div>
 
@@ -84,13 +84,13 @@ const Footer = () => {
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
                     <div className="col-span-1 md:col-span-1">
                         <Link to="/" className="text-2xl font-bold font-display text-white tracking-tight mb-6 block">
-                            Barani<span className="text-brand-accent">HR</span>
+                            Barani's<span className="text-brand-accent">HR Firm</span>
                         </Link>
                         <p className="text-gray-400 text-sm leading-relaxed mb-6">
                             Empowering organizations with 20+ years of human resources expertise. Bridging the gap between human insight and modern technology.
                         </p>
                         <div className="flex space-x-4">
-                            <a href="#" className="text-gray-400 hover:text-white transition-colors"><Linkedin size={20} /></a>
+                            <a href="https://www.linkedin.com/in/barani25" className="text-gray-400 hover:text-white transition-colors"><Linkedin size={20} /></a>
                             {/* <a href="#" className="text-gray-400 hover:text-white transition-colors"><Twitter size={20} /></a>
                             <a href="#" className="text-gray-400 hover:text-white transition-colors"><Facebook size={20} /></a> */}
                         </div>
@@ -157,3 +157,4 @@ const Layout = ({ children }) => {
 };
 
 export default Layout;
+
