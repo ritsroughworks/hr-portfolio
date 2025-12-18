@@ -15,7 +15,7 @@ app = FastAPI()
 # Enable CORS
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://barani-portfolio.onrender.com"],  # In production, specify the frontend domain
+    allow_origins=["https://barani-portfolio.onrender.com/contact","https://barani-portfolio.onrender.com/services-rfq","https://barani-portfolio.onrender.com/careers"],  # In production, specify the frontend domain
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -174,4 +174,5 @@ async def rfq_form(
 @app.get("/")
 def read_root():
     return {"message": "Barani HR Backend is running"}
+
 
