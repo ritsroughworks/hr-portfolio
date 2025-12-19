@@ -205,10 +205,10 @@ const Home = () => {
                             <div className="relative h-full min-h-[300px] rounded-2xl overflow-hidden bg-brand-primary flex items-center justify-center">
                                 {/* Abstract visual instead of image */}
                                 <div className="absolute inset-0 bg-gradient-to-br from-brand-primary to-brand-secondary"></div>
-                                <div className="relative z-10 text-center p-8">
-                                    <span className="block text-6xl font-display font-bold text-white/10 mb-2">TRUST</span>
-                                    <span className="block text-6xl font-display font-bold text-white/20 mb-2">GROWTH</span>
-                                    <span className="block text-6xl font-display font-bold text-white/30">HARMONY</span>
+                                <div className="relative z-10 text-center p-4 sm:p-8">
+                                    <span className="block text-4xl sm:text-6xl font-display font-bold text-white/10 mb-2">TRUST</span>
+                                    <span className="block text-4xl sm:text-6xl font-display font-bold text-white/20 mb-2">GROWTH</span>
+                                    <span className="block text-4xl sm:text-6xl font-display font-bold text-white/30">HARMONY</span>
                                 </div>
                             </div>
                         </div>
@@ -262,5 +262,6 @@ const Home = () => {
 
 
 export default Home;
+
 
 
