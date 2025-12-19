@@ -25,7 +25,7 @@ const servicesData = [
     {
         id: 'hr-tech',
         title: 'HR Technology & Automation',
-        subdivisions: ['HRIS Selection & Implementation', 'Process Automation', 'People Analytics', 'Digital HR Strategy', 'AI in HR Workshops']
+        subdivisions: ['HRIS Selection & Implementation', 'Process Automation', 'People Analytics', 'Digital HR Strategy', 'AI in HR Workshops', 'Storyboards & Nuggets']
     },
     {
         id: 'hrbp-outsourcing',
@@ -270,3 +270,4 @@ const ServicesRFQ = () => {
 };
 
 export default ServicesRFQ;
+
