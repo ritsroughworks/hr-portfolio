@@ -90,7 +90,7 @@ const Home = () => {
                             transition={{ duration: 0.8, delay: 0.4 }}
                             className="flex flex-col sm:flex-row justify-center gap-4"
                         >
-                            <Link to="/services-rfq" className="px-8 py-4 bg-brand-primary text-white text-lg font-medium rounded-full hover:bg-brand-secondary transition-all shadow-xl hover:shadow-2xl flex items-center justify-center group">
+                            <Link to="/contact" className="px-8 py-4 bg-brand-primary text-white text-lg font-medium rounded-full hover:bg-brand-secondary transition-all shadow-xl hover:shadow-2xl flex items-center justify-center group">
                                 Request a Proposal
                                 <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={20} />
                             </Link>
@@ -262,6 +262,7 @@ const Home = () => {
 
 
 export default Home;
+
 
 
 
