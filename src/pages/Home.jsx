@@ -220,7 +220,7 @@ const Home = () => {
             {/* --- CHANGE START: Updated JSX for Images --- */}
             <section className="py-24 bg-white overflow-hidden">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12 text-center">
-                    <h2 className="text-2xl font-bold text-gray-400 uppercase tracking-widest">Trusted by organizations worldwide</h2>
+                    <h2 className="text-2xl font-bold text-gray-400 uppercase tracking-widest">Projects done for organizations worldwide</h2>
                 </div>
 
                 <div className="flex flex-wrap justify-center gap-8 max-w-7xl mx-auto px-4">
@@ -262,4 +262,5 @@ const Home = () => {
 
 
 export default Home;
+
 
