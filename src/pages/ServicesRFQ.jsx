@@ -15,7 +15,7 @@ const servicesData = [
     {
         id: 'people-operations',
         title: 'People Operations',
-        subdivisions: ['Policy Development', 'Employee Relations', 'Compliance & Risk Management', 'HR Audit', 'Workforce Planning']
+        subdivisions: ['Policy Development', 'Employee Relations', 'Compliance & Risk Management', 'HR Audit', 'Workforce Planning', 'House Keeping Manpower']
     },
     {
         id: 'performance-culture',
@@ -270,4 +270,5 @@ const ServicesRFQ = () => {
 };
 
 export default ServicesRFQ;
+
 
